@@ -15,7 +15,7 @@ app.post('/send', urlEncodedParser, function(req, res) {
 
 const server = app.listen(8080, function() {
     const host = server.address().address;
-    const port = 8080;
+    const port = server.address().port;
     console.log("App listening to the address and port", host, port)
 })
 
