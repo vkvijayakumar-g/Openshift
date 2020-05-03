@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 
 const redis = require("redis");
 const client = redis.createClient(process.env.RD_PORT, process.env.RD_HOST);
+client.auth(process.env.RD_PWD);
 
 client.on('connect', function() {
     console.log("Redis Host",process.env.RD_HOST);
