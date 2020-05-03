@@ -1,11 +1,14 @@
+require('dotenv').config()
 const express = require('express');
 const app = express();
 const bodyParser = require("body-parser");
 
 const redis = require("redis");
-const client = redis.createClient();
+const client = redis.createClient(process.env.RD_PORT, process.env.RD_HOST);
 
 client.on('connect', function() {
+    console.log("Redis Host",process.env.RD_HOST);
+    console.log("Redis Port", process.env.RD_PORT);
     console.log('Redis client connected');
 });
 
